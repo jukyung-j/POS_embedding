@@ -20,5 +20,5 @@ vocab size를 키웠을 경우 성능을 비교해 보기
 ### KoELECTRA 
 KoELECTRA tokenizer를 KorBERT형태로 바꾸고 입력이 들어왔을 경우 Mecab으로 형태소 붙여서 변하게 만듬  
 model embedding layer에 POS embedding layer 추가  
-작동해볼려고 했지만 TPU를 GCP에 돌려야 하는데 제대로 안됨..  
-***Exception: Parameter "name" value does not match the pattern "^projects/[^/]+/locations/[^/]+/nodes/[^/]+$"***
+작동해볼려고 했지만 TPU를 GCP에 돌려야 함 
+
