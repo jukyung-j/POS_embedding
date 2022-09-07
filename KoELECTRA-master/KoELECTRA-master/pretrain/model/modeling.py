@@ -29,8 +29,8 @@ import re
 
 import numpy as np
 import six
-import tensorflow as tf
-from tensorflow.keras import layers as contrib_layers
+import tensorflow.compat.v1 as tf
+from tensorflow.contrib import layers as contrib_layers
 
 
 class BertConfig(object):
