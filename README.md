@@ -12,4 +12,13 @@ colab: https://colab.research.google.com/drive/1mWTHATolfdNbsI2aUGW1HqgNBzR4g35l
 결과가 생각보다 안나옴
 Why? 영어 RoBERTA의 vocab size와 klue/RoBERTA의 vocab size mismatch로 추측...  
 
+## vocab 수정
+기존 ETRI의 KorBERT의 경우 vocab size가 30349였다. 이를 모두의 말뭉치로 해서 vocab에 없을 경우 추가했다.  
+vocab size를 키웠을 경우 성능을 비교해 보기  
+형태소분석해서 vocab에 추가하는걸 KLTagger로 해서 성능 비교해 보기  
 
+### KoELECTRA 
+KoELECTRA tokenizer를 KorBERT형태로 바꾸고 입력이 들어왔을 경우 Mecab으로 형태소 붙여서 변하게 만듬  
+model embedding layer에 POS embedding layer 추가  
+작동해볼려고 했지만 TPU를 GCP에 돌려야 하는데 제대로 안됨..
+***Exception: Parameter "name" value does not match the pattern "^projects/[^/]+/locations/[^/]+/nodes/[^/]+$"***
