@@ -524,7 +524,7 @@ def embedding_postprocessor(input_tensor,
       pos_type_table = tf.get_variable(
           name=pos_embedding_name,
           shape=[token_type_vocab_size, width],
-          iniitializer=create_initializer(initializer_range))
+          initializer=create_initializer(initializer_range))
 
       flat_pos_ids = tf.reshape(pos_ids, [-1])
       one_hot_pos = tf.one_hot(flat_pos_ids, depth=token_type_vocab_size)
