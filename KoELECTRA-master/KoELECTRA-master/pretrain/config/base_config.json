@@ -1,5 +1,5 @@
 {
-  "tpu_name": "node-1",
+  "tpu_name": "test-tpu",
   "tpu_zone": "asia-east1-c",
   "use_tpu": true,
   "num_tpu_cores": 8,
