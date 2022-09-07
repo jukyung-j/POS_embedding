@@ -45,6 +45,7 @@ def get_input_fn(config: configure_pretraining.PretrainingConfig, is_training,
         "input_ids": tf.io.FixedLenFeature([config.max_seq_length], tf.int64),
         "input_mask": tf.io.FixedLenFeature([config.max_seq_length], tf.int64),
         "segment_ids": tf.io.FixedLenFeature([config.max_seq_length], tf.int64),
+        "pos_ids": tf.io.FixedLenFeature([config.max_seq_length], tf.int64),
     }
 
     d = tf.data.Dataset.from_tensor_slices(tf.constant(input_files))
@@ -96,7 +97,7 @@ def _decode_record(record, name_to_features):
 # model inputs - it's a bit nicer to use a namedtuple rather than keep the
 # features as a dict
 Inputs = collections.namedtuple(
-    "Inputs", ["input_ids", "input_mask", "segment_ids", "masked_lm_positions",
+    "Inputs", ["input_ids", "input_mask", "segment_ids", "pos_ids", "masked_lm_positions",
                "masked_lm_ids", "masked_lm_weights"])
 
 
@@ -105,6 +106,7 @@ def features_to_inputs(features):
       input_ids=features["input_ids"],
       input_mask=features["input_mask"],
       segment_ids=features["segment_ids"],
+      pos_ids=features["pos_ids"],
       masked_lm_positions=(features["masked_lm_positions"]
                            if "masked_lm_positions" in features else None),
       masked_lm_ids=(features["masked_lm_ids"]
